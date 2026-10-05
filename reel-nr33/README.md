@@ -1,28 +1,33 @@
-# Reel NR 33 – Ancoragem Labs
+# Reels NR 33 – Ancoragem Labs
 
-**Arquivo final:** `reel_nr33_ancoragemlabs.mp4`: vertical 1080x1920, 30 fps, 40 s, H.264 + AAC. Serve para Reels do Instagram e do Facebook.
+## v2 (atual): depoimento do Gabriel
+**Arquivo:** `reel_nr33_depoimento.mp4`: vertical 1080x1920, 30 fps, cerca de 66 s, H.264 + AAC (Instagram e Facebook).
 
-## Roteiro
-| Tempo | Cena |
-|---|---|
-| 0–3 s | Abertura: logo Ancoragem Labs, "NR 33 · Espaços Confinados" |
-| 3–22 s | video1: instrutora explicando a RT no simulado, com legendas (fala original + música baixa) |
-| 22–28 s | video2: elaboração no papel, "Hora de colocar no papel" (só música) |
-| 28–34,5 s | Certificado NR 33 (SESI Paracatu / Kinross, 16 h) |
-| 34,5–40 s | Encerramento: mascote + logo + "Siga e compartilhe" |
+- **Base:** depoimento do Gabriel após o treinamento (`video6`), editado para ~55 s de fala.
+- **Inserções:** atividades dos vídeos 1 a 5 (entrada no espaço confinado, imobilização com colar cervical, prancha, remoção da vítima), com motion graphics 2D:
+  - título de abertura;
+  - painéis "Antes / Durante / Depois";
+  - alerta "Atividade crítica";
+  - cartões NR 35 + NR 33 e o selo "2 atividades críticas";
+  - palavras "Tenso / Desgastante / Insalubre";
+  - checklist "Profissional / Treinamento / Qualificação / Capacitação";
+  - carimbo "APTO";
+  - certificado e encerramento com mascote.
+- **Rostos borrados:** todos, com detecção automática (MediaPipe) mais marcações manuais revisadas quadro a quadro (`MANUAL` em `build_reel_v2.py`). O Gabriel também aparece borrado, com crédito na tela.
+- **Áudio:** só a voz do depoimento e a trilha Steady Pulse. O áudio original dos vídeos de atividade fica mudo, então não entra nenhuma fala de fundo (nem o "pra cima caveira").
 
-O áudio original só toca nos trechos com fala transcrita do video1. O resto do áudio original fica mudo, para que nenhuma fala fora do roteiro entre no reel (como o "pra cima caveira").
+Regerar:
+```
+pip install pillow numpy opencv-python-headless mediapipe==0.10.14
+python3 build_reel_v2.py assets reel_nr33_depoimento.mp4
+```
+
+## v1: `reel_nr33_ancoragemlabs.mp4`
+Primeira versão (40 s), sem o depoimento. Gerada por `build_reel.py`.
 
 ## Legenda sugerida para o post
-> Treinamento na prática! 🦺
-> Capacitação NR 33 – Espaços Confinados (Trabalhadores Autorizados e Vigias): análise do ambiente, elaboração da RT e certificação pelo SESI Paracatu.
+> "Por isso que a gente é profissional, recebe treinamento, se qualifica, se capacita." 🦺
+> Depoimento após a capacitação NR 33 – Espaços Confinados (Trabalhadores Autorizados e Vigias): entrada, resgate e remoção de vítima na prática. Certificação SESI Paracatu.
 > Segurança em cada ancoragem. ⚓
 >
-> #NR33 #EspaçosConfinados #SegurançaDoTrabalho #TrabalhoEmAltura #AncoragemLabs #VerticalEngineering #Paracatu
-
-## Regerar
-```
-pip install pillow numpy
-python3 build_reel.py assets reel_nr33_ancoragemlabs.mp4
-```
-Precisa de ffmpeg. As fontes Montserrat e Anton (OFL) ficam em `assets/fonts/`.
+> #NR33 #EspaçosConfinados #NR35 #TrabalhoEmAltura #SegurançaDoTrabalho #Resgate #AncoragemLabs #VerticalEngineering #Paracatu
