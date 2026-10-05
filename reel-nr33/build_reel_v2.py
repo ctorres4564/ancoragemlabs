@@ -568,7 +568,7 @@ def panel(img, fr, box, label, q, tl, fy=0.45):
 def scene_triptych(t, tl, dur, key, p):
     """Antes / durante / depois: três painéis entrando no ritmo da fala."""
     img = dark_bg(t)
-    marks = [(vt(26.9), "ANTES", (2, 3.0), 0.22),
+    marks = [(vt(26.9), "ANTES", (2, 14.0), 0.06),
              (vt(28.4), "DURANTE", (3, 5.0), 0.45),
              (vt(29.9), "DEPOIS", (5, 84.0), 0.55)]
     top = 300
